@@ -510,6 +510,8 @@ launchctl unload ~/Library/LaunchAgents/com.jerry.gstack-sync.plist
 | Codex/Gemini 호환 파일 | `.agents/skills/` 구조가 함께 존재 | Claude Code plugin으로 사용 시 무시됨 |
 | gstack의 CLAUDE.md 가이드 | "gstack 섹션을 CLAUDE.md에 추가" 안내 | 플러그인이면 자동 감지되므로 불필요할 수 있음 |
 | symlink 깨짐 | 프로젝트 경로 변경 시 symlink 무효화 | `ln -sf` 로 재설정 |
+| **plugin.json 위치** | 루트가 아닌 `.claude-plugin/plugin.json`에 있어야 함 | `.claude-plugin/` 디렉토리 사용 |
+| **플러그인 로딩** | symlink, installed_plugins.json 수동 수정 모두 안 먹힘 | `--plugin-dir` 플래그 또는 마켓플레이스 등록 |
 
 ---
 

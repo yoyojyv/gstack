@@ -473,6 +473,54 @@ bun install
 ln -sf /Users/jerry/Projects/gstack-plugin ~/.claude/plugins/gstack-plugin
 ```
 
+### 플러그인이 로드 안 될 때
+
+Claude Code 플러그인은 특정 구조와 등록 방식을 따라야 인식된다.
+
+**증상:** `/gstack:qa` 등 커맨드가 스킬 목록에 나타나지 않음
+
+**원인 1: `plugin.json` 위치가 잘못됨**
+- `plugin.json`은 루트가 아닌 **`.claude-plugin/plugin.json`**에 있어야 함
+- 실제 작동하는 플러그인 구조:
+  ```
+  my-plugin/
+  ├── .claude-plugin/
+  │   └── plugin.json       ← 여기!
+  ├── commands/
+  │   └── cmd.md
+  └── skills/
+      └── skill-name/
+          └── SKILL.md
+  ```
+
+**원인 2: symlink만으로는 인식 안 됨**
+- `~/.claude/plugins/`에 symlink를 걸어도 Claude Code가 자동 인식하지 않음
+- `installed_plugins.json` 수동 수정도 작동하지 않음
+
+**해결 방법:**
+
+방법 A — `--plugin-dir` 플래그 (즉시 테스트용):
+```bash
+claude --plugin-dir /Users/jerry/Projects/gstack-plugin
+```
+
+방법 B — shell alias (영구적):
+```bash
+# ~/.zshrc에 추가
+alias claude='claude --plugin-dir /Users/jerry/Projects/gstack-plugin'
+```
+
+방법 C — 마켓플레이스 등록 (정석):
+```bash
+# jerry-claude-kit 또는 별도 마켓플레이스에 추가
+# /plugin marketplace add → /plugin install gstack@marketplace
+```
+
+**검증:**
+```bash
+claude --plugin-dir /Users/jerry/Projects/gstack-plugin -p "List gstack commands" --output-format text
+```
+
 ### SSH push 안 될 때
 
 현재 HTTPS remote 사용 중. SSH 키 등록 후 전환하려면:
@@ -483,7 +531,7 @@ git remote set-url origin git@github.com:yoyojyv/gstack.git
 
 ---
 
-## 6. 업데이트 채널 정리
+## 7. 업데이트 채널 정리
 
 | 채널 | 트리거 | 용도 |
 |:-----|:-------|:-----|
@@ -497,3 +545,4 @@ git remote set-url origin git@github.com:yoyojyv/gstack.git
 |:-----|:-----|:----------|
 | v1.0.0 | 2026-03-24 | 초기 작성 |
 | v1.1.0 | 2026-03-24 | 개발 플로우 가이드 + 10가지 사례별 플로우 추가 |
+| v1.2.0 | 2026-03-24 | 플러그인 레지스트리 등록 트러블슈팅 추가 |
