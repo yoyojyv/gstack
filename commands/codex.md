@@ -1,5 +1,5 @@
 ---
-name: codex
+name: gstack:codex
 description: "OpenAI Codex CLI wrapper — three modes. Code review: independent diff review via"
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: setup-browser-cookies
+name: gstack:setup-browser-cookies
 description: "Import cookies from your real browser (Comet, Chrome, Arc, Brave, Edge) into the"
 ---
 

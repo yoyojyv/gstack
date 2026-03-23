@@ -1,5 +1,5 @@
 ---
-name: cso
+name: gstack:cso
 description: "Chief Security Officer mode. Infrastructure-first security audit: secrets archaeology,"
 ---
 

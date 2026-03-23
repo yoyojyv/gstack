@@ -1,5 +1,5 @@
 ---
-name: gstack
+name: gstack:gstack
 description: "Fast headless browser for QA testing and site dogfooding. Navigate pages, interact with"
 ---
 

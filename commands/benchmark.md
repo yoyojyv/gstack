@@ -1,5 +1,5 @@
 ---
-name: benchmark
+name: gstack:benchmark
 description: "Performance regression detection using the browse daemon. Establishes"
 ---
 

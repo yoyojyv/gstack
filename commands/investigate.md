@@ -1,5 +1,5 @@
 ---
-name: investigate
+name: gstack:investigate
 description: "Systematic debugging with root cause investigation. Four phases: investigate,"
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: retro
+name: gstack:retro
 description: "Weekly engineering retrospective. Analyzes commit history, work patterns,"
 ---
 

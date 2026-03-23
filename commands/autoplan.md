@@ -1,5 +1,5 @@
 ---
-name: autoplan
+name: gstack:autoplan
 description: "Auto-review pipeline — reads the full CEO, design, and eng review skills from disk"
 ---
 

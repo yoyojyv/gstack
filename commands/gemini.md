@@ -1,5 +1,5 @@
 ---
-name: gemini
+name: gstack:gemini
 description: "Gemini CLI wrapper — three modes. Code review: independent diff review with"
 ---
 

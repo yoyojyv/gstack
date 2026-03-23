@@ -1,5 +1,5 @@
 ---
-name: unfreeze
+name: gstack:unfreeze
 description: "Clear the freeze boundary set by /freeze, allowing edits to all directories"
 ---
 

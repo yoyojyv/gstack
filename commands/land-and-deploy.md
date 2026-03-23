@@ -1,5 +1,5 @@
 ---
-name: land-and-deploy
+name: gstack:land-and-deploy
 description: "Land and deploy workflow. Merges the PR, waits for CI and deploy,"
 ---
 
