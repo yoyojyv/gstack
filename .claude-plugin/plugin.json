@@ -2,5 +2,5 @@
   "name": "gstack",
   "description": "Garry Tan's gstack — 28 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, QA, and Security Officer for Claude Code",
   "version": "0.11.9.0",
-  "author": "garrytan (wrapped by yoyojyv)"
+  "author": { "name": "garrytan (wrapped by yoyojyv)" }
 }
