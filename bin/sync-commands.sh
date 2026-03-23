@@ -26,6 +26,7 @@ SKILLS=(
   "design-review"
   "document-release"
   "freeze"
+  "gemini"
   "gstack-upgrade"
   "guard"
   "investigate"

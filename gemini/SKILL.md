@@ -1,9 +1,20 @@
 ---
 name: gemini
-description: "Gemini CLI wrapper — three modes. Code review: independent diff review with"
+version: 1.0.0
+description: |
+  Gemini CLI wrapper — three modes. Code review: independent diff review with
+  pass/fail gate. Challenge: adversarial mode that tries to break your code.
+  Consult: ask Gemini anything with session continuity for follow-ups.
+  The "200 IQ autistic developer" second opinion. Use when asked to "gemini review",
+  "gemini challenge", "ask gemini", "second opinion gemini", or "consult gemini".
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Glob
+  - Grep
+  - AskUserQuestion
 ---
-
-<!-- ===== SYNCED FROM gemini/SKILL.md — DO NOT EDIT BELOW ===== -->
 
 # /gemini — Multi-AI Second Opinion (Gemini)
 
@@ -13,6 +24,7 @@ independent, brutally honest second opinion from a different AI system.
 Gemini is the "200 IQ autistic developer" — direct, terse, technically precise, challenges
 assumptions, catches things you might miss. Present its output faithfully, not summarized.
 
+---
 
 ## Step 0: Check gemini binary
 
@@ -24,6 +36,7 @@ GEMINI_BIN=$(which gemini 2>/dev/null || echo "")
 If `NOT_FOUND`: stop and tell the user:
 "Gemini CLI not found. Install it: `npm install -g @anthropic-ai/gemini-cli` or see https://github.com/google-gemini/gemini-cli"
 
+---
 
 ## Step 0.5: Detect base branch
 
@@ -38,6 +51,7 @@ Determine which branch this PR targets. Use the result as "the base branch" in a
 
 3. If both commands fail, fall back to `main`.
 
+---
 
 ## Step 1: Detect mode
 
@@ -63,6 +77,7 @@ Parse the user's input to determine which mode to run:
    - Otherwise, ask: "What would you like to ask Gemini?"
 4. `/gemini <anything else>` — **Consult mode** (Step 2C), where the remaining text is the prompt
 
+---
 
 ## Step 2A: Review Mode
 
@@ -192,6 +207,7 @@ CROSS-MODEL ANALYSIS:
 rm -f "$TMPROMPT"
 ```
 
+---
 
 ## Step 2B: Challenge (Adversarial) Mode
 
@@ -235,6 +251,7 @@ GEMINI SAYS (adversarial challenge):
 Tokens: N | Duration: Xs
 ```
 
+---
 
 ## Step 2C: Consult Mode
 
@@ -299,6 +316,7 @@ Session saved — run /gstack:gemini again to continue this conversation.
    understanding. If there is a disagreement, flag it:
    "Note: Claude Code disagrees on X because Y."
 
+---
 
 ## Model & Output
 
@@ -313,6 +331,7 @@ extracts assistant messages, tool usage, and token statistics from the JSONL eve
 If the user specifies a model (e.g., `/gemini review -m gemini-2.5-pro`),
 pass the `-m` flag through to gemini.
 
+---
 
 ## Error Handling
 
@@ -325,6 +344,7 @@ pass the `-m` flag through to gemini.
   "Gemini returned no response. Run `gemini` interactively to check for issues."
 - **Session resume failure:** If resume fails, start a fresh session instead.
 
+---
 
 ## Important Rules
 
@@ -335,8 +355,3 @@ pass the `-m` flag through to gemini.
 - **5-minute timeout** on all Bash calls to gemini (`timeout: 300000`).
 - **No double-reviewing.** If the user already ran `/review`, Gemini provides a second
   independent opinion. Do not re-run Claude Code's own review.
-<!-- ===== END SYNCED CONTENT ===== -->
-
-<!-- ===== CUSTOM OVERRIDES — 자유롭게 수정 ===== -->
-
-<!-- ===== END CUSTOM ===== -->
