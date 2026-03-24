@@ -1,4 +1,6 @@
 .env
+.idea/
+.DS_Store
 node_modules/
 browse/dist/
 bin/gstack-global-discover
